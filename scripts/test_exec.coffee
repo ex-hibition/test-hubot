@@ -10,7 +10,7 @@ module.exports = (robot) ->
   # -- test.rbを実行する
   robot.respond /test\.rb/i, (msg) ->
     exec = require('child_process').exec
-    cmd = "ruby /home/vagrant/test-hubot/scripts/shell/test.rb"
+    cmd = "ruby scripts/shell/test.rb"
     msg.send "`Command : #{cmd}` 実行しまーす"
     exec cmd, (error, stdout, stderr) ->
        msg.send error if error?
@@ -20,7 +20,7 @@ module.exports = (robot) ->
   # -- test.shを実行する
   robot.respond /test\.sh/i, (msg) ->
     exec = require('child_process').exec
-    cmd = "sh /home/vagrant/test-hubot/scripts/shell/test.sh"
+    cmd = "sh scripts/shell/test.sh"
     msg.send "`Command : #{cmd}` 実行しまーす"
     exec cmd, (error, stdout, stderr) ->
        msg.send error if error?
