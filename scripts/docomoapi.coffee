@@ -14,7 +14,7 @@ module.exports = (robot) ->
     message = msg.match[1]
 
     # -- 別処理の起動条件には反応しない
-    return if message ? "exec" or message ? "select"
+    return if /^exec\s+|^select\s+/.test(message)
 
     request = require('request'); 
     request.post
