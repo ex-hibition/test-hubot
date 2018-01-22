@@ -26,3 +26,13 @@ module.exports = (robot) ->
       msg.send error if error?
       msg.send stdout if stdout?
       msg.send stderr if stderr?
+
+  # -- amazon_adv_api.rbを実行する
+  robot.respond /exec\s+adv_api\s+(.*)/i, (msg) ->
+    exec = require('child_process').exec
+    cmd = "(cd scripts/shell; ruby ./amazon_adv_api.rb #{msg.match[1]})"
+    msg.send "`Command : #{cmd}` 実行しまーす"
+    exec cmd, (error, stdout, stderr) ->
+      msg.send error if error?
+      msg.send stdout if stdout?
+      msg.send stderr if stderr?
