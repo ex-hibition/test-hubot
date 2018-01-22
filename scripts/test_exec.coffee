@@ -28,6 +28,7 @@ module.exports = (robot) ->
       msg.send stderr if stderr?
 
   # -- amazon_adv_api.rbを実行する
+  # -- 引数を書籍タイトル検索文字列として利用する
   robot.respond /exec\s+adv_api\s+(.*)/i, (msg) ->
     exec = require('child_process').exec
     cmd = "(cd scripts/shell; ruby ./amazon_adv_api.rb #{msg.match[1]})"
