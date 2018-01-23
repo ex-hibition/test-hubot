@@ -15,5 +15,8 @@ PLATFORMS
 DEPENDENCIES
   amazon-ecs
 
+RUBY VERSION
+   ruby 2.4.0p0
+
 BUNDLED WITH
    1.16.0
