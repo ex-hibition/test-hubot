@@ -24,7 +24,10 @@ res = Amazon::Ecs.item_search('',
 #		 :browse_node => '2250738051'
 		})
 
-res.items.each do |item|
+res.items.each_with_index do |item, index|
+  # -- 5個以上のURLリンクはSlackで自動展開されないため
+  break if index == 4
+
   # -- item詳細
 #  puts item.get_element('ItemAttributes')
   item_attributes = item.get_element('ItemAttributes')
